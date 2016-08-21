@@ -1,6 +1,8 @@
 TEMPLATE = app
 CONFIG += qt4  #debug
 
+prefix=/usr
+
 isEmpty(prefix) {
 	prefix = $$system(pf-makevar --absolute root 2>/dev/null)
 }
@@ -83,7 +85,8 @@ INSTALLS = target brdfs data images probes shaderTemplates pkgconfig
 
 
 !linux-mingw32-custom{
-    LIBS += -lz -lGLEW -lGLU -lglut
+#    LIBS += -lz -lGLEW -lGLU -lglut
+    LIBS += -lz -lglew32 -lfreeglut
 }
 
 # Windows cross compile at disney
